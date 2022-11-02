@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="stilo.css" rel="stylesheet">
+
+    <title>Js - 2</title>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="input">
+            <input id ="Form"type="text">
+        </div>
+
+        <div class="Add">
+            <button onclick="acionaAdd();" id="Add" type="submit">Adicionar</button>
+        </div>
+
+        <div class="Ordenar">
+            <button onclick="acionaOrden();" id="Ordena" type="submit">Ordenar</button>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="texto">
+        <h1>Elementos tabela</h1>
+    </div>
+
+    <div class="elementos">
+        <h2 id="elementosTab"></h2>
+    </div>
+
+    <hr>
+
+
+        
+
+
+
+    <script>
+
+        var objetos = ['Cadeira', 'Impressora', 'Garfo']
+        
+        var escrever = document.getElementById('elementosTab')
+
+        function acionaAdd () {
+
+            var elemento = document.getElementById('Form').value
+
+            if (elemento == "" ) {
+                alert("Escreva um valor válido!")
+
+            }
+                else if (objetos.indexOf(elemento) !== -1) {
+                alert("Elemento já existe!")
+
+                }
+
+                else {
+                    objetos.unshift(elemento)
+                    console.log(objetos)
+                    document.getElementById('Form').value = ""
+                    escrever.textContent = objetos
+                    
+
+                }
+        }
+
+        function acionaOrden() {
+
+            objetos.sort()
+            escrever.textContent = objetos
+
+        }
+
+    </script>
+    
+</body>
+    
+</html>
